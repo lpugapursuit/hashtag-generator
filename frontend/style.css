@@ -1,0 +1,384 @@
+/* Import Google Fonts - Inter (for body) and Luckiest Guy (for titles) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Luckiest+Guy&display=swap');
+
+/* Define Brand Colors as CSS Variables */
+:root {
+    --brand-pink: #FF69B4; /* Hot Pink */
+    --brand-orange: #FFA500; /* Bright Orange */
+    --brand-dark-text: #333;
+    --brand-light-text: #555;
+    --brand-background-light: #fdf2f8; /* Very light pink/purple tint */
+    --brand-background-gradient-start: #f06292; /* Slightly darker pink for gradient */
+    --brand-background-gradient-end: #ffab40; /* Orange for gradient */
+    --brand-button-primary: #FF69B4; /* Pink button */
+    --brand-button-secondary: #ffab40; /* Orange button */
+    --brand-border-light: #f0d9e9; /* Light pink border */
+    --brand-shadow-color: rgba(255, 105, 180, 0.3); /* Pink shadow */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Background gradient inspired by brand colors */
+    background: linear-gradient(135deg, var(--brand-background-gradient-start), var(--brand-background-gradient-end));
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--brand-dark-text);
+}
+
+#app-container {
+    background-color: #ffffff;
+    padding: 35px;
+    max-width: 550px;
+    width: 100%;
+    box-shadow: 0 10px 25px var(--brand-shadow-color); /* Brand-colored shadow */
+    border-radius: 20px; /* More rounded card */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Increased gap for more breathing room */
+}
+
+.app-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between logo and tagline */
+    margin-bottom: 10px;
+}
+
+.app-logo {
+    max-width: 250px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 5px; /* Space below logo */
+}
+
+.app-tagline {
+    font-family: 'Luckiest Guy', cursive; /* Apply the playful font */
+    font-size: 1.8em; /* Adjusted size for tagline */
+    color: var(--brand-orange); /* Orange tagline */
+    margin: 0; /* Remove default margin */
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1); /* Subtle text shadow */
+}
+
+.app-description {
+    color: var(--brand-light-text);
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* Custom File Upload Area */
+.upload-area {
+    border: 2px dashed var(--brand-orange); /* Orange dashed border */
+    border-radius: 15px; /* More rounded */
+    padding: 30px 20px;
+    background-color: var(--brand-background-light); /* Light brand background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--brand-pink); /* Pink on hover */
+    background-color: #ffe6f2; /* Lighter pink on hover */
+}
+
+.upload-area p {
+    margin: 0;
+    color: var(--brand-dark-text);
+    font-weight: 600;
+}
+
+.custom-file-upload {
+    background-color: var(--brand-pink); /* Pink button */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px; /* More rounded button */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 3px 6px var(--brand-shadow-color);
+}
+
+.custom-file-upload:hover {
+    background-color: #e65a9e; /* Darker pink on hover */
+    transform: translateY(-2px);
+}
+
+#fileName {
+    font-size: 0.9em;
+    color: var(--brand-light-text);
+    margin-top: -10px;
+}
+
+.or-separator {
+    color: var(--brand-light-text);
+    font-weight: 600;
+    margin: 10px 0;
+    position: relative;
+    text-align: center;
+}
+
+.or-separator::before,
+.or-separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: var(--brand-border-light); /* Light pink line */
+}
+
+.or-separator::before {
+    left: 0;
+}
+
+.or-separator::after {
+    right: 0;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--brand-border-light); /* Light pink border */
+    border-radius: 10px; /* More rounded */
+    box-sizing: border-box;
+    font-size: 1.05em;
+    resize: vertical;
+    min-height: 120px;
+    background-color: var(--brand-background-light); /* Light brand background */
+    color: var(--brand-dark-text);
+    line-height: 1.5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    border-color: var(--brand-pink); /* Pink border on focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2); /* Pink glow on focus */
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+button {
+    flex: 1;
+    padding: 15px 25px;
+    border-radius: 10px; /* More rounded buttons */
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#generateBtn {
+    background-color: var(--brand-button-primary); /* Primary Pink */
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px var(--brand-shadow-color);
+}
+
+#generateBtn:hover {
+    background-color: #e65a9e; /* Darker pink */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--brand-shadow-color);
+}
+
+#generateBtn:active {
+    transform: translateY(0);
+}
+
+.secondary-btn { /* Style for Clear All button */
+    background-color: var(--brand-button-secondary); /* Secondary Orange */
+    color: white; /* White text for contrast */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.3); /* Orange shadow */
+}
+
+.secondary-btn:hover {
+    background-color: #e69500; /* Darker orange */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 165, 0, 0.4);
+}
+
+.secondary-btn:active {
+    transform: translateY(0);
+}
+
+#hashtagOutput {
+    margin-top: 25px;
+    background-color: var(--brand-background-light); /* Light brand background */
+    padding: 20px;
+    border: 1px solid var(--brand-border-light); /* Light brand border */
+    border-radius: 12px; /* More rounded */
+    min-height: 100px;
+    text-align: left;
+    word-wrap: break-word;
+    color: var(--brand-dark-text);
+    font-size: 0.95em;
+    line-height: 1.6;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* --- Auth Section Styles --- */
+#auth-section {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid var(--brand-border-light);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.emailInput,
+.passwordInput {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--brand-border-light);
+    border-radius: 8px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    background-color: var(--brand-background-light);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.emailInput:focus,
+.passwordInput:focus {
+    border-color: var(--brand-pink);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.15);
+}
+
+#auth-section .button-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#registerBtn {
+    background-color: var(--brand-button-primary);
+    color: #fff;
+}
+#registerBtn:hover {
+    background-color: #e65a9e;
+}
+#registerBtn:active {
+    background-color: var(--brand-button-primary);
+}
+
+#loginBtn {
+    background-color: var(--brand-button-secondary);
+    color: #fff;
+}
+#loginBtn:hover {
+    background-color: #e69500;
+}
+#loginBtn:active {
+    background-color: var(--brand-button-secondary);
+}
+
+.authMessage {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+}
+.authMessage.error {
+    color: red;
+}
+.authMessage.success {
+    color: green;
+}
+
+#logoutBtn {
+    background-color: #ccc;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logoutBtn:hover {
+    background-color: #bbb;
+}
+#logoutBtn:active {
+    background-color: #aaa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #app-container {
+        padding: 25px;
+        border-radius: 15px;
+        gap: 20px;
+    }
+
+    .app-logo {
+        max-width: 200px;
+    }
+
+    .app-tagline {
+        font-size: 1.5em;
+    }
+
+    .app-description {
+        font-size: 1em;
+    }
+
+    .upload-area {
+        padding: 25px 15px;
+    }
+
+    .custom-file-upload {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+
+    textarea {
+        min-height: 100px;
+        font-size: 1em;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    #hashtagOutput {
+        padding: 15px;
+        min-height: 80px;
+    }
+}
