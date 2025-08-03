@@ -3,7 +3,7 @@
 // It should be included at the end of the HTML or after DOMContentLoaded.
 
 // Configuration
-const API_BASE_URL = 'http://localhost:3000'; // ✅ Port 3000
+const API_BASE_URL = 'https://hashtag-generator-production.up.railway.app'; // Production Railway backend
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
