@@ -2,8 +2,8 @@
 // This script implements the core logic for the MVP version of the hashtag generator.
 // It should be included at the end of the HTML or after DOMContentLoaded.
 
-// Configuration
-const API_BASE_URL = 'https://hashtag-generator-production.up.railway.app'; // Production Railway backend
+// Configuration - Vercel Full-Stack Deployment
+const API_BASE_URL = window.location.origin + '/api'; // Vercel serverless functions
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
